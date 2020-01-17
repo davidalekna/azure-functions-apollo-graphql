@@ -23,8 +23,8 @@ const schema = {
       sitecoreAPI: new SitecoreAPI(),
     };
   },
-  context: async ({ request: req, context }: ContextProps) => {
-    return { req, context };
+  context: async ({ request, context }: ContextProps) => {
+    return { request, context };
   },
   introspection: true,
   playground: true,
