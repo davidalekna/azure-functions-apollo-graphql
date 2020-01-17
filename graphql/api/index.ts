@@ -16,8 +16,8 @@ const schema = {
   resolvers,
   formatError: (err: any) => err,
   formatResponse: (resp: any) => resp,
-  context: async ({ request, context }: ContextProps) => {
-    return { request, context };
+  context: async ({ request: req, context }: ContextProps) => {
+    return { req, context };
   },
   introspection: true,
   playground: true,
