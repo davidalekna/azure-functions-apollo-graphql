@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const fakeApi = (delay: number) => {
+const fakeApi = (delay: number = 1000) => {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve([
@@ -33,7 +33,7 @@ const fakeApi = (delay: number) => {
 export default {
   Query: {
     getMovies: async (_, { timeout }) => {
-      return await fakeApi(timeout || 1000);
+      return await fakeApi(timeout);
     },
     getUsers: async () => {
       const response = await axios.get(
