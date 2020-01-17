@@ -1,4 +1,5 @@
 import { Context, HttpRequest } from '@azure/functions';
+import { RegistryAPI, SitecoreAPI } from '../sources';
 import { merge } from 'lodash';
 import movie from './movie';
 
@@ -16,6 +17,12 @@ const schema = {
   resolvers,
   formatError: (err: any) => err,
   formatResponse: (resp: any) => resp,
+  dataSources: () => {
+    return {
+      registryAPI: new RegistryAPI(),
+      sitecoreAPI: new SitecoreAPI(),
+    };
+  },
   context: async ({ request: req, context }: ContextProps) => {
     return { req, context };
   },
