@@ -1,4 +1,4 @@
-import { gql } from "apollo-server-azure-functions";
+import { gql } from 'apollo-server-azure-functions';
 
 export default gql`
   type Movie {
