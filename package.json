@@ -7,7 +7,8 @@
     "watch": "tsc -w",
     "prestart": "npm run build",
     "start": "func start",
-    "test": "echo \"No tests yet...\""
+    "test": "echo \"No tests yet...\"",
+    "deploy": "func azure functionapp publish apollographql"
   },
   "dependencies": {
     "apollo-server-azure-functions": "^2.9.16",
