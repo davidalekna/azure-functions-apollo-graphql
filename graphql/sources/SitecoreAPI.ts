@@ -1,5 +1,35 @@
 import { RESTDataSource, RequestOptions } from 'apollo-datasource-rest';
 
+const fakeApi = (delay: number = 1000) => {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve([
+        {
+          id: 1,
+          title: 'The Lion King',
+          release_date: '2019',
+          count_stars: 7,
+          director_id: 1,
+        },
+        {
+          id: 2,
+          title: 'The Informer',
+          release_date: '2019',
+          count_stars: 6,
+          director_id: 1,
+        },
+        {
+          id: 3,
+          title: 'Fast & Furious Presents: Hobbs & Shaw',
+          release_date: '2019',
+          count_stars: 6,
+          director_id: 2,
+        },
+      ]);
+    }, delay);
+  });
+};
+
 export class SitecoreAPI extends RESTDataSource {
   constructor() {
     super();
@@ -10,19 +40,7 @@ export class SitecoreAPI extends RESTDataSource {
     request.headers.set('Authorization', this.context.token);
   }
 
-  async postMovie(movie) {
-    return this.post(`movies`, movie);
-  }
-
-  async newMovie(movie) {
-    return this.put(`movies`, movie);
-  }
-
-  async updateMovie(movie) {
-    return this.patch(`movies`, { id: movie.id, movie });
-  }
-
-  async deleteMovie(movie) {
-    return this.delete(`movies/${movie.id}`);
+  async getMovies(delay: number) {
+    return await fakeApi(delay);
   }
 }
