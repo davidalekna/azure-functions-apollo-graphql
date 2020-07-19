@@ -15,7 +15,7 @@
     "apollo-datasource-rest": "^0.6.11",
     "apollo-server-azure-functions": "^2.9.16",
     "axios": "^0.19.1",
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.19"
   },
   "devDependencies": {
     "@azure/functions": "^1.0.3",
